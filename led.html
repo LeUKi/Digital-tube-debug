@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+        .hen {
+            width: 60px;
+            height: 20px;
+            margin-left: 20px;
+        }
+
+        .shu {
+            width: 20px;
+            height: 100px;
+        }
+
+        .kuan {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dp {
+            width: 30px;
+            height: 20px;
+            margin-left: 70px;
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            margin: 20px;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .show {
+            display: flex;
+            width: 200px;
+            justify-content: space-between;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="app">
+            <div>
+                <button v-on:click="a=!a" v-bind:style="{'background-color':a?'white':'red'}" class="hen">a</button>
+            </div>
+            <div class="kuan">
+                <button v-on:click="f=!f" v-bind:style="{'background-color':f?'white':'red'}" class="shu">f</button>
+                <button v-on:click="b=!b" v-bind:style="{'background-color':b?'white':'red'}"
+                    class="shu kuanR">b</button>
+            </div>
+            <div>
+                <button v-on:click="g=!g" v-bind:style="{'background-color':g?'white':'red'}" class="hen">g</button>
+            </div>
+            <div class="kuan">
+                <button v-on:click="e=!e" v-bind:style="{'background-color':e?'white':'red'}" class="shu">e</button>
+                <button v-on:click="c=!c" v-bind:style="{'background-color':c?'white':'red'}"
+                    class="shu kuanR">c</button>
+            </div>
+            <div>
+                <button v-on:click="d=!d" v-bind:style="{'background-color':d?'white':'red'}" class="hen">d</button>
+            </div>
+            <div>
+                <button v-on:click="dp=!dp" v-bind:style="{'background-color':dp?'white':'red'}" class="dp">dp</button>
+            </div>
+        </div>
+
+        <div>
+            <button v-on:click="dp=!dp">{{!dp?"1":"0"}}</button>
+            <button v-on:click="g=!g">{{!g?"1":"0"}}</button>
+            <button v-on:click="f=!f">{{!f?"1":"0"}}</button>
+            <button v-on:click="e=!e">{{!e?"1":"0"}}</button>
+            <button v-on:click="d=!d">{{!d?"1":"0"}}</button>
+            <button v-on:click="c=!c">{{!c?"1":"0"}}</button>
+            <button v-on:click="b=!b">{{!b?"1":"0"}}</button>
+            <button v-on:click="a=!a">{{!a?"1":"0"}}</button>
+
+
+
+        </div>
+        <div class="show">
+            <div>
+                <div>共阴:</div>
+                <div>{{hx=""+
+            Number(!dp)+
+            Number(!g)+
+            Number(!f)+
+            Number(!e)+
+            Number(!d)+
+            Number(!c)+
+            Number(!b)+
+            Number(!a)
+        }}B</div>
+                <div>0x{{parseInt(hx,2).toString(16)}}</div>
+            </div>
+            <div>
+                <div>共阳:</div>
+                <div>{{hxy=""+
+            Number(dp)+
+            Number(g)+
+            Number(f)+
+            Number(e)+
+            Number(d)+
+            Number(c)+
+            Number(b)+
+            Number(a)
+        }}B</div>
+                <div>0x{{parseInt(hxy,2).toString(16)}}</div>
+            </div>
+        </div>
+        by
+        lafish
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                a: true,
+                b: true,
+                c: true,
+                d: true,
+                e: true,
+                f: true,
+                g: true,
+                dp: true,
+                hx: 0,
+                hxy: 1
+            }
+        })
+    </script>
+</body>
+
+</html>
